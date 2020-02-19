@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour {
     private bool bSpawning;
     public static EnemyManager instance;
     private int iRandSpawnMin;
+    private int iRandSpawnType;
 
     private void Awake() {
         if (EnemyManager.instance == null) {
@@ -84,7 +85,17 @@ public class EnemyManager : MonoBehaviour {
                 iRandSpawnMin = 0;
                 Vector3 v3SpawnPos = new Vector3(Random.Range(-3.5f, 3.5f), 0f, transSpawn.position.z);
                 Quaternion qRot = transSpawn.rotation;
-                SpawnObjFromPool("Enemy1", v3SpawnPos, qRot);
+                switch (Random.Range(0, 2)) {
+                    case 0:
+                        SpawnObjFromPool("EnemyBase", v3SpawnPos, qRot);
+                        break;
+                    case 1:
+                        SpawnObjFromPool("EnemySplit", v3SpawnPos, qRot);
+                        break;
+                    default:
+                        SpawnObjFromPool("EnemyBase", v3SpawnPos, qRot);
+                        break;
+                }
             } else {
                 iRandSpawnMin++;
             }

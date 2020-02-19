@@ -845,7 +845,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 1e-45, w: 7.17e-43}
+  m_BoundingSphereOverride: {x: 1e-45, y: NaN, z: 3.59e-43, w: 2.2e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1721,8 +1721,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transSpawn: {fileID: 205003281}
   pools:
-  - strName: Enemy1
+  - strName: EnemyBase
     goPrefab: {fileID: 3800619096229647577, guid: af6f5bbca08dcd64cbe633357ea8d767,
+      type: 3}
+    iSize: 15
+  - strName: EnemySplit
+    goPrefab: {fileID: 3800619096229647577, guid: 4fd4f48a15742a04baf10991b1470706,
       type: 3}
     iSize: 10
 --- !u!114 &1697321177
