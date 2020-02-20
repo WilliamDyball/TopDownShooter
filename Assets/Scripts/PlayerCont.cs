@@ -17,11 +17,14 @@ public class PlayerCont : MonoBehaviour {
     private float fNextFire;
 
     private bool bImmune;
-    private float fImmuneMax;
+    private float fImmuneMax = 3f;
     private float fImmuneTimer;
 
     private bool bAutoFire;
     private bool bResapawn;
+
+    [SerializeField]
+    private GameObject goShield;
 
     private void Awake() {
         camMain = Camera.main;
@@ -52,8 +55,14 @@ public class PlayerCont : MonoBehaviour {
         }
         if (fImmuneTimer >= 0) {
             fImmuneTimer -= Time.deltaTime;
+            if (!goShield.activeSelf) {
+                goShield.SetActive(true);
+            }
             bImmune = true;
         } else {
+            if (goShield.activeSelf) {
+                goShield.SetActive(false);
+            }
             bImmune = false;
         }
     }
