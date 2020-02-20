@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+    public TextMeshProUGUI highScoreText;
 
     public GameObject restartButton;
 
@@ -55,6 +56,8 @@ public class GameManager : MonoBehaviour {
             iHighScore = iScore;
             SetPref(HIGHSCORE_PREF, iHighScore);
         }
+        highScoreText.text = ("High score: " + iHighScore);
+        highScoreText.gameObject.SetActive(true);
         EnemyManager.instance.bSpawning = false;
         restartButton.SetActive(true);
     }

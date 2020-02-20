@@ -81,7 +81,6 @@ public class EnemyManager : MonoBehaviour {
     private WaitForSeconds wait = new WaitForSeconds(.5f);
 
     private IEnumerator IESpawnEnemies() {
-        Debug.Log("Starting coroutine.");
         bSpawning = true;
         while (bSpawning) {
             yield return wait;
