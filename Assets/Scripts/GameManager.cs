@@ -41,7 +41,12 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RestartScene() {
-        SceneManager.LoadScene("Main");
+        iLives = 3;
+        iScore = 0;
+        UpdateScore();
+        UpdateLives();
+        EnemyManager.instance.StartSpawning();
+        //SceneManager.LoadScene("Main");
     }
 
     public void GameOver() {
@@ -50,6 +55,7 @@ public class GameManager : MonoBehaviour {
             iHighScore = iScore;
             SetPref(HIGHSCORE_PREF, iHighScore);
         }
+        EnemyManager.instance.bSpawning = false;
         restartButton.SetActive(true);
     }
 

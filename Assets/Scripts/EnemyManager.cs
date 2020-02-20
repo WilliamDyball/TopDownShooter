@@ -8,8 +8,8 @@ public class EnemyManager : MonoBehaviour {
     [SerializeField]
     private Transform transSpawn;
 
-    private IEnumerator spawnCoroutine;
-    private bool bSpawning;
+    private Coroutine spawnCoroutine;
+    public bool bSpawning;
     public static EnemyManager instance;
     private int iRandSpawnMin;
     private int iRandSpawnType;
@@ -21,7 +21,6 @@ public class EnemyManager : MonoBehaviour {
             Destroy(EnemyManager.instance.gameObject);
             EnemyManager.instance = this;
         }
-        spawnCoroutine = IESpawnEnemies();
         bSpawning = false;
     }
 
@@ -72,14 +71,19 @@ public class EnemyManager : MonoBehaviour {
         if (bSpawning) {
             return;
         }
-        StartCoroutine(spawnCoroutine);
+        spawnCoroutine = StartCoroutine(IESpawnEnemies());
+    }
+
+    public void StopSpawning() {
+        StopCoroutine(spawnCoroutine);
     }
 
     private WaitForSeconds wait = new WaitForSeconds(.5f);
 
     private IEnumerator IESpawnEnemies() {
+        Debug.Log("Starting coroutine.");
         bSpawning = true;
-        while (true) {
+        while (bSpawning) {
             yield return wait;
             if (Random.Range(iRandSpawnMin, 10) > 5) {
                 iRandSpawnMin = 0;
