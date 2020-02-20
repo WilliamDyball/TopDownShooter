@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 675111295}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -949,7 +949,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -3.2834148}
+  m_BoundingSphereOverride: {x: 5.89e-43, y: -6.2564035e-27, z: 5.87e-43, w: 1.4195304e+36}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1751,7 +1751,7 @@ GameObject:
   - component: {fileID: 1544296540}
   m_Layer: 0
   m_Name: FirePos
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2276,7 +2276,7 @@ GameObject:
   - component: {fileID: 23496528641701448}
   m_Layer: 0
   m_Name: StarSparrow10
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

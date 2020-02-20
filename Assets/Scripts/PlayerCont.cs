@@ -26,6 +26,8 @@ public class PlayerCont : MonoBehaviour {
     [SerializeField]
     private GameObject goShield;
 
+    private Coroutine respawnCoroutine;
+
     private void Awake() {
         camMain = Camera.main;
     }
@@ -72,17 +74,19 @@ public class PlayerCont : MonoBehaviour {
             return;
         }
         GameManager.instance.PlayerDeath();
-        StartCoroutine(IERespawn());
+        respawnCoroutine = StartCoroutine(IERespawn());
     }
 
     private readonly WaitForSeconds respawnDuration = new WaitForSeconds(.5f);
 
     private IEnumerator IERespawn() {
-        transform.position = transStartPos.position;
-        Pooled.bReset = true;
         bResapawn = true;
+        GameManager.instance.bRespawning = true;
+        Pooled.bReset = true;
+        transform.position = transStartPos.position;
         yield return respawnDuration;
         Pooled.bReset = false;
+        GameManager.instance.bRespawning = false;
         bResapawn = false;
     }
 

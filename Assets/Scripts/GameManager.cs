@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     private int iScore;
     private int iLives;
 
+    public bool bRespawning = false;
+
     private const string HIGHSCORE_PREF = "HIGHSCORE";
     private int iHighScore;
 
@@ -63,6 +65,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public void PlayerDeath() {
+        if (bRespawning) {
+            return;
+        }
         iLives--;
         if (iLives <= 0) {
             GameOver();
